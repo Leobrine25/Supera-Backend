@@ -1,5 +1,7 @@
 package br.com.banco.Model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -13,18 +15,18 @@ public class Transferencia {
     @Id
     private int id; 
     
-    @Column
-    private java.sql.Timestamp data_transferencia;
+    @Column (name = "data_transferencia", nullable = false)
+    private java.sql.Timestamp dataTransferencia;
     
-    @Column
-    private long valor;
+    @Column(precision=10, scale=2)
+    private BigDecimal valor;
     
     @Column
     private String tipo;
     
-    @Column
-    private String nome_operador_transacao;
+    @Column(name = "nome_operador_transacao")
+    private String nomeOperadorTransacao;
 
     @Column(name = "conta_id", nullable = false)
-    private Integer contaid;
+    private int contaid;
 }
